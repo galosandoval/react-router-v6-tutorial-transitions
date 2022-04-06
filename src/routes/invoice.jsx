@@ -9,9 +9,9 @@ export default function Invoice() {
   let invoice = getInvoice(parseInt(params.invoiceId, 10));
 
   return (
-    <main style={{ padding: '1rem' }}>
-      <h2>Total Due: {invoice.amount}</h2>
-      <p>
+    <div style={{ padding: '1rem', width: '100%' }}>
+      <h2 style={{ width: '100%' }}>Total Due: {invoice.amount}</h2>
+      <p style={{ width: '100%' }}>
         {invoice.name}: {invoice.number}
       </p>
       <p>Due Date: {invoice.due}</p>
@@ -25,6 +25,6 @@ export default function Invoice() {
           Delete
         </button>
       </p>
-    </main>
+    </div>
   );
 }

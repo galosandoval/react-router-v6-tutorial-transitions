@@ -20,7 +20,7 @@ export default function Invoices() {
   const location = useLocation();
 
   return (
-    <div style={{ display: 'flex' }}>
+    <div style={{ display: 'flex', position: 'relative' }}>
       <nav style={{ borderRight: 'solid 1px', padding: '1rem' }}>
         <input
           value={searchParams.get('filter') || ''}
@@ -56,11 +56,15 @@ export default function Invoices() {
             </QueryNavLink>
           ))}
       </nav>
-      <TransitionGroup component={null}>
-        <CSSTransition key={location.key} classNames="fade" timeout={1000}>
-          <Outlet />
-        </CSSTransition>
-      </TransitionGroup>
+      <div
+        style={{ display: 'block', position: 'absolute', right: '0', top: '0' }}
+      >
+        <TransitionGroup component={null}>
+          <CSSTransition key={location.key} classNames="fade" timeout={3000}>
+            <Outlet />
+          </CSSTransition>
+        </TransitionGroup>
+      </div>
     </div>
   );
 }
